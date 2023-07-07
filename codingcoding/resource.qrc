@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/kick.ico</file>
+        <file>background/lake.jpg</file>
+        <file>background/classroom.png</file>
+        <file>background/classroom2.png</file>
+        <file>background/floor.jpg</file>
+        <file>landscale/wall.jpg</file>
+        <file>landscale/table.png</file>
+        <file>landscale/spike.png</file>
+        <file>settlement/_LE.jpg</file>
+        <file>settlement/AC.jpg</file>
+        <file>settlement/PE.jpg</file>
+        <file>settlement/WA.jpg</file>
+        <file>background/status.png</file>
+        <file>music/tuanzi.wav</file>
+        <file>music/gamebgm.wav</file>
+        <file>background/starting.jpg</file>
+        <file>button/exit.png</file>
+        <file>button/normal.png</file>
+        <file>button/picked.png</file>
+        <file>character/fall.png</file>
+        <file>character/gw.png</file>
+        <file>character/left.png</file>
+        <file>character/ljy.png</file>
+        <file>character/push_down.png</file>
+        <file>character/push_right.png</file>
+        <file>character/push_up.png</file>
+        <file>character/right.png</file>
+        <file>character/stand.png</file>
+        <file>character/zqj.png</file>
+        <file>button/start.png</file>
+        <file>landscale/gate.jpg</file>
+        <file>landscale/key.png</file>
+        <file>character/push_left.png</file>
+        <file>background/classroom3.png</file>
+        <file>background/classroom4.png</file>
+        <file>background/dialog.png</file>
+        <file>text/dialog1.txt</file>
+        <file>text/dialog2.txt</file>
+        <file>text/dialog3.txt</file>
+        <file>text/dialog4.txt</file>
+        <file>text/dialog5.txt</file>
+    </qresource>
+</RCC>
