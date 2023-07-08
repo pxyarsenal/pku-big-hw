@@ -13,6 +13,7 @@ public:
     ~MainWindow();
     void keyPressEvent(QKeyEvent* event);
     static bool instory;
+    static bool firsttime;
 
 
 };

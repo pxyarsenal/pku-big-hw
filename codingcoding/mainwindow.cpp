@@ -33,6 +33,7 @@ static MusicLoader *music;
 int interface_mode = 0;
 
 bool MainWindow::instory = false;
+bool MainWindow::firsttime = true;
 bool from_pause = false;
 
 void init_choosewindow()
@@ -125,15 +126,16 @@ void settlewindow_to_main()
     settlewindow->hide();
     interface_mode = _starting_window;
     MainWindow::instory=false;
-    qDebug()<<map_id;
+    qDebug()<<settlewindow->level_id;
 }
 
 void init_dialogwindow()
 {
     //choosewindow->hide();
-    if(map_id == 0){
+    if(settlewindow->level_id == 0){
         MainWindow::instory = true;
         single->hide();choose->hide();to_exit->hide();
+
         dialogwindow->show();
         dialogwindow->startDialog();
         dialogwindow_to_game();
@@ -142,41 +144,47 @@ void init_dialogwindow()
         MainWindow::instory = true;
         dialogwindow->hide();
         single->hide();choose->hide();to_exit->hide();
-        qDebug()<<map_id;
-        if(SettleWindow::win_or_not == false && from_pause == false)game_started(map_id - 1);
+        qDebug()<<settlewindow->level_id;
+        if(SettleWindow::win_or_not == false && from_pause == false)game_started(settlewindow->level_id - 1);
+        else if(MainWindow::firsttime && SettleWindow::win_or_not == false){
+            game_started(settlewindow->level_id);
+        }
         else {
             SettleWindow::win_or_not = false;
             from_pause = false;
-            game_started(map_id);
+            game_started(settlewindow->level_id);
         }
     }
 }
 
 void dialogwindow_to_game(){
-    if(map_id == 4){
+    if(settlewindow->level_id == 4){
         MainWindow::instory = false;
         dialogwindow->hide();
         single->show(); choose->show(); to_exit->show();
         interface_mode = _starting_window;
-        map_id=0;
+        settlewindow->level_id=0;
         dialogwindow->order =0;
+        MainWindow::firsttime = true;
         return;
     }
     dialogwindow->hide();
-    game_started(map_id);
-    dialogwindow->order++;
-    map_id++;
-    if(map_id>4)return;
+    SettleWindow::win_or_not = false;
+    game_started(settlewindow->level_id);
+
+    if(settlewindow->level_id>4)return;
 }
 
 void settle_to_dialog(){
+    dialogwindow->order = settlewindow->level_id+1;
     if(dialogwindow->order == 6){
         MainWindow::instory=false;
         dialogwindow->hide();
         single->show(); choose->show(); to_exit->show();
         interface_mode = _starting_window;
-        map_id=0;
+        settlewindow->level_id=0;
         dialogwindow->order =0;
+        MainWindow::firsttime = true;
         return;
     }
     dialogwindow->show();

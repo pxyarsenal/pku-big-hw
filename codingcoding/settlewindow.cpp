@@ -33,6 +33,7 @@ void SettleWindow::init(int mode, int _level_id)
 
     if(MainWindow::instory && mode == WIN){
         SettleWindow::win_or_not = true;
+        level_id++;
         restart = new FullButton(":/button/start.png", "CONTINUE", this);
         restart->move(350, 500);
         connect(restart, &FullButton::clicked, this, [=]{
