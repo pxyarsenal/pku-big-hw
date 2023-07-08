@@ -33,6 +33,7 @@ static MusicLoader *music;
 int interface_mode = 0;
 
 bool MainWindow::instory = false;
+bool from_pause = false;
 
 void init_choosewindow()
 {
@@ -102,6 +103,7 @@ void pausewindow_to_main()
         interface_mode = _starting_window;
         MainWindow::instory=false;
         music->changeMusic(":/music/tuanzi.wav");
+        from_pause = true;
     }
 }
 
@@ -141,9 +143,10 @@ void init_dialogwindow()
         dialogwindow->hide();
         single->hide();choose->hide();to_exit->hide();
         qDebug()<<map_id;
-        if(SettleWindow::win_or_not == false)game_started(map_id - 1);
+        if(SettleWindow::win_or_not == false && from_pause == false)game_started(map_id - 1);
         else {
             SettleWindow::win_or_not = false;
+            from_pause = false;
             game_started(map_id);
         }
     }
